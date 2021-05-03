@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class Validator {
 
     public boolean validateUserName(String Username){
-        String regexString="[A-Z]{1}[a-z]{2,10}$";
+        String regexString="[A-Z]{1}[a-z]{3,20}$";
         Pattern patternMatching = Pattern.compile(regexString);
         Matcher m = patternMatching.matcher(Username);
          return m.matches();

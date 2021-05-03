@@ -1,18 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1">
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        .header{
+            display:flex;
+            padding-top: 12px;
+            padding-bottom: 5px;
+            flex-direction: unset;
+            justify-content: center;
+            border:0px ;
+            text-align: center;
+            font: normal normal bold 30px/30px Algerian;
+            background-color: lightcyan;
+        }
+        form {
+            border: 3px whitesmoke;
+            padding: 20px 15px;
+        }
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            padding: 10px 20px;
+        }
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .container {
+            padding: 5px 12px;
+            background-color: whitesmoke;
+        }
+
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+
     <title>Login Page</title>
 
 </head>
 <body>
+<header>
+<div class="header">LOGIN PAGE</div>
+</header>
   <form action="LoginServlet" method="post">
-      Username:<input type="text" name="user">
-      <br>
-      Password:<input type="text" name="pwd">
-      <br>
-      <input type="submit" name="Login">
+      <div class="imgcontainer">
+          <img src="dpIcon.jpg" height="200px" width="200px" alt="icon" class="icon">
+      </div>
+      <div class="container">
+          <label><b>Username</b></label>
+           <input type="text" placeholder="Enter your User name" name="user" required>
+          <label><b>Password</b></label>
+          <input type="text" placeholder="Enter your Password" name="pwd" required>
 
+          <button type="submit" name="Login">LOGIN</button>
+      </div>
   </form>
 </body>
 </html>
