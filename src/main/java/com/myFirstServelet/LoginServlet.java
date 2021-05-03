@@ -9,27 +9,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.regex.Pattern;
+
 @WebServlet(
         description = "Login Servlet Testing",
-        urlPatterns = { "/LoginServlet" },
-        initParams = {
-                @WebInitParam(name = "user", value = "Ankita"),
-                @WebInitParam(name = "password", value = "ankita@123")
-        }
+        urlPatterns = { "/LoginServlet" }
+
 )
 public class LoginServlet extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //super.doPost(request, response);
 
         //get requset parameter for userId Password
+
+
         String user = request.getParameter("user");
         String pwd =request.getParameter("pwd");
 
-        String userId = getServletConfig().getInitParameter("user");
-        String password=getServletConfig().getInitParameter("password");
+        Validator validator = new Validator();
+        boolean userNameCheck = validator.validateUserName(user);
+        boolean passwordCheck = validator.validatePassword(pwd);
 
-        if (userId.equals(user) && password.equals(pwd)){
+
+        String userId = getServletConfig().getInitParameter("user");
+        String password=getServletConfig().getInitParameter("pwd");
+
+
+
+
+        if (userNameCheck==true && passwordCheck==true){
             request.setAttribute("user",user);
             request.getRequestDispatcher("LoginSuccess.jsp").forward(request,response);
         }
